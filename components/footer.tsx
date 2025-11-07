@@ -1,7 +1,8 @@
 export default function Footer() {
   return (
-    <footer className="mt-20 py-6 bg-[#223241] text-center text-white text-sm">
-      © Materia Solutions {new Date().getFullYear()} — All Rights Reserved
-    </footer>
+    <footer className="bg-[#223241] text-white py-6 text-center fixed bottom-0 left-0 w-full">
+  <p>© Materia Solutions 2025. All rights reserved.</p>
+</footer>
+
   );
 }

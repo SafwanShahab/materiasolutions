@@ -10,11 +10,21 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className="pt-20">
+      <body className="flex flex-col min-h-screen">
+        {/* Navbar */}
         <Navbar />
-        <main>{children}</main>
-        <Footer />
+
+        {/* Page content grows to fill space */}
+        <main className="flex-grow min-h-[200vh]">
+          {children}
+        </main>
+
+        {/* Footer at the bottom */}
+        <footer className="bg-[#223241] text-white py-6 text-center">
+          <p>© Materia Solutions 2025. All rights reserved.</p>
+        </footer>
       </body>
     </html>
   );
 }
+
