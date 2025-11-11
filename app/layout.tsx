@@ -20,9 +20,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </main>
 
         {/* Footer at the bottom */}
-        <footer className="bg-[#223241] text-white py-6 text-center">
-          <p>© Materia Solutions 2025. All rights reserved.</p>
-        </footer>
+        <Footer />
       </body>
     </html>
   );

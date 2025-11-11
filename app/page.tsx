@@ -1,27 +1,32 @@
+"use client";
+
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Hero section */}
-      <div
-        className="relative flex-grow bg-contain bg-no-repeat"
-        style={{
-          backgroundImage: "url('/turbinebg.webp')",
-          backgroundPosition: "center 80%", // moves the image downward
-        }}
-      >
+      {/* ===== Hero Section ===== */}
+      <div className="relative flex-grow h-[1000px] mt-28">
+        {/* Video Background */}
+        <video
+          className="absolute top-0 left-0 w-full h-full object-cover"
+          src="/turbinevid.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+        ></video>
+
         {/* Dark overlay for contrast */}
         <div className="absolute inset-0 bg-black/50"></div>
 
-        {/* Main content */}
-        <div className="relative z-10 flex flex-col items-center justify-center text-center text-white px-4 py-20">
-          <h1 className="text-5xl font-bold mb-4">Welcome to Materia Solutions</h1>
-          <p className="text-lg max-w-xl">
-            Innovative aviation solutions crafted for efficiency, safety, and precision.
-          </p>
+        {/* Main Content */}
+        <div className="relative z-10 flex flex-col items-center justify-center text-center text-white px-4 h-[calc(100vh-120px)]">
+          <h1 className="text-5xl font-bold mb-4 typing-title">
+          Welcome to Materia Solutions
+          </h1>
+        <p className="fade-in text-lg max-w-xl">
+        Innovative aviation solutions crafted for efficiency, safety, and precision.
+        </p>
         </div>
-
-        {/* Spacer at bottom for scroll */}
-        <div className="h-64"></div>
       </div>
 
       {/* ===== Our Services Section ===== */}
@@ -34,7 +39,7 @@ export default function Home() {
           {/* Free Consultation */}
           <div className="p-8 rounded-2xl shadow-lg hover:shadow-2xl transition">
             <img
-              src="https://images.unsplash.com/photo-1591012911200-79f2d1d64e62?crop=entropy&cs=tinysrgb&fit=max&h=150&w=150"
+              src="https://plus.unsplash.com/premium_photo-1661908759956-93c29efea72b?ixlib=rb-4.1.0&auto=format&fit=crop&q=60&w=500"
               alt="Free Consultation"
               className="mx-auto mb-4 rounded-full"
             />
@@ -52,7 +57,7 @@ export default function Home() {
           {/* Request a Quote */}
           <div className="p-8 rounded-2xl shadow-lg hover:shadow-2xl transition">
             <img
-              src="https://images.unsplash.com/photo-1581093588401-88d3ab9f61c3?crop=entropy&cs=tinysrgb&fit=max&h=150&w=150"
+              src="https://plus.unsplash.com/premium_photo-1664533227323-1502b504cac4?ixlib=rb-4.1.0&auto=format&fit=crop&q=60&w=500"
               alt="Request a Quote"
               className="mx-auto mb-4 rounded-full"
             />
@@ -70,7 +75,7 @@ export default function Home() {
           {/* Contact Us */}
           <div className="p-8 rounded-2xl shadow-lg hover:shadow-2xl transition">
             <img
-              src="https://images.unsplash.com/photo-1588776814546-7b5c54e34d65?crop=entropy&cs=tinysrgb&fit=max&h=150&w=150"
+              src="https://plus.unsplash.com/premium_photo-1675842663249-a8b70103dbaa?ixlib=rb-4.1.0&auto=format&fit=crop&q=60&w=500"
               alt="Contact Us"
               className="mx-auto mb-4 rounded-full"
             />
@@ -86,6 +91,32 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ===== CSS for Typing & Fade-In ===== */}
+      <style jsx>{`
+        @keyframes typing {
+          from { width: 0; opacity: 0; }
+          to { width: 100%; opacity: 1; }
+        }
+
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(10px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+
+        .typing-title {
+          display: inline-block;
+          overflow: hidden;
+          white-space: nowrap;
+          animation: typing 4s ease-out forwards;
+        }
+
+        .fade-in {
+          opacity: 0;
+          animation: fadeIn 1s ease 3s forwards;
+        }
+      `}</style>
     </div>
   );
 }
+
