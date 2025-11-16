@@ -22,10 +22,10 @@ export default function Footer() {
 
           {/* Social Icons */}
           <div className="flex items-center space-x-4 mt-2">
-            <a href="#" className="hover:text-gray-300"><FaFacebookF size={18} /></a>
-            <a href="#" className="hover:text-gray-300"><FaInstagram size={18} /></a>
-            <a href="#" className="hover:text-gray-300"><FaLinkedinIn size={18} /></a>
-            <a href="#" className="hover:text-gray-300"><FaTwitter size={18} /></a>
+            <a href="#" className="hover:text-blue-500"><FaFacebookF size={18} /></a>
+            <a href="#" className="hover:text-pink-500"><FaInstagram size={18} /></a>
+            <a href="#" className="hover:text-blue-700"><FaLinkedinIn size={18} /></a>
+            <a href="#" className="hover:text-sky-400"><FaTwitter size={18} /></a>
           </div>
 
           {/* Contact Info */}
@@ -46,9 +46,9 @@ export default function Footer() {
         </div>
 
         {/* === Right Section === */}
-        <div className="flex flex-col justify-between w-full md:w-1/2">
+        <div className="flex flex-col justify-between w-full md:w-1/2 md:mt-3">
           {/* Site Links */}
-          <div className="flex flex-wrap gap-6 md:justify-end">
+          <div className="flex flex-wrap gap-10 md:justify-left text-lg">
             <a href="#" className="hover:underline">Services</a>
             <a href="#" className="hover:underline">Booking</a>
             <a href="#" className="hover:underline">About</a>
@@ -56,8 +56,15 @@ export default function Footer() {
           </div>
 
           {/* Description */}
-          <p className="text-gray-400 text-sm md:text-left mt-6 md:mt-0">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          <p className="text-gray-400 text-sm md:text-left mt-6 md:mt-11">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.  
+            Vivamus imperdiet, sapien in fermentum bibendum, sapien justo ultrices elit, sit amet pretium nunc erat ut augue.  
+            Suspendisse potenti. Integer sit amet sapien vitae nulla ultrices cursus.  
+            Phasellus dignissim, metus non cursus ullamcorper, justo ligula facilisis nulla, ac efficitur sapien arcu at libero.  
+            Curabitur at magna sed lacus tincidunt tincidunt.  
+            Etiam vitae ligula id lectus vehicula hendrerit.  
+            Fusce imperdiet, lorem in dignissim lacinia, enim erat finibus metus, sed tristique lacus mauris ut nibh.  
+            Praesent a urna vitae turpis lacinia vestibulum at sit amet sapien.
           </p>
         </div>
 
