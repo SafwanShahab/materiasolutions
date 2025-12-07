@@ -3,8 +3,9 @@
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
+
       {/* ===== Hero Section ===== */}
-      <div className="relative flex-grow h-[1000px] mt-28">
+      <div className="relative h-[1000px] mt-28">
         {/* Video Background */}
         <video
           className="absolute top-0 left-0 w-full h-full object-cover"
@@ -19,57 +20,80 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/60"></div>
 
         {/* Main Hero Text */}
-        <div className="relative z-10 flex flex-col items-center justify-center text-center text-white px-16 h-[calc(100vh-120px)]">
-          <h1 className="typing-title text-6xl font-bold mb-6 leading-tight tracking-wide">
-            Welcome to Materia Solutions
+        <div className="relative z-10 flex flex-col items-center justify-center text-center text-white px-8 md:px-16 lg:px-32 h-[calc(100vh-120px)]">
+          <h1 className="typing-title md:text-6xl font-bold mb-6 leading-tight tracking-wide">
+            Materia Solutions
           </h1>
-          <p className="fade-in text-xl max-w-2xl text-gray-200 font-light">
-            Delivering next-generation aviation solutions — engineered for
-            efficiency, safety, and precision.
+          <p className="fade-in text-xl md:text-1xl max-w-4xl text-gray-200 font-light">
+            At Materia Solutions, we uncover hidden material and component issues before they become costly failures. From failure analysis to metallography and NDE, our expert engineers deliver fast, actionable insights to keep your programs on track.
           </p>
+          <div className="flex justify-center gap-4">
+          <button className="bg-white text-black px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition mt-5">
+            Request a Quote
+          </button>
+          <button className="bg-white text-black px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition mt-5">
+            Schedule a Free Consultation
+          </button>
+          </div>
+
         </div>
       </div>
 
       {/* ===== Our Services Section ===== */}
-      <section className="bg-white text-gray-800 md:py-10 md:px-5">
-        <h2 className="text-4xl font-bold text-center mb-16 text-[#223241]">
-          <img class = "object-scale-down" src="/services.png" />
-          Our Services
-        </h2>
+      <section className="bg-white text-gray-800 pt-16 pb-16 px-5 md:px-10">
+        {/* Image + Heading */}
+        <div className="flex items-center gap-6 mb-8 -mt-8">
+          <img
+            src="/services.png"
+            alt="Services Icon"
+            className="h-24 w-auto object-contain"
+          />
+          <h2 className="text-5xl md:text-6xl font-bold text-[#223241]">
+            Our Services
+          </h2>
+        </div>
 
-        <div className="flex justify-center gap-12 text-center">
-          {/* ===== SERVICE CARD TEMPLATE ===== */}
+        {/* ===== SERVICE CARDS ===== */}
+        <div className="flex flex-wrap justify-center gap-10 md:gap-12">
           {[
             {
-              title: "Free Consultation",
+              title: "Our Services",
               img: "https://plus.unsplash.com/premium_photo-1661908759956-93c29efea72b?auto=format&fit=crop&q=60&w=600",
-              text: "Schedule a complimentary consultation with our aviation experts to explore your project needs.",
-              button: "Book Now",
+              text: "Advanced materials testing and analysis for aerospace, including failure analysis, metallography, and NDE delivered with clarity and precision.",
+              button: "Services",
+              link: "/services",
+              
             },
             {
               title: "Request a Quote",
               img: "https://plus.unsplash.com/premium_photo-1664533227323-1502b504cac4?auto=format&fit=crop&q=60&w=600",
-              text: "Receive a customized quote tailored to your aviation engineering or manufacturing requirements.",
+              text: "We make it easy to get started. Send us your part details, required analyses, and any applicable test standards, and we’ll provide a clear, competitive quote with fast turnaround options.",
               button: "Request Quote",
+            },
+            {
+              title: "Schedule a Free Consultation",
+              img: "https://plus.unsplash.com/premium_photo-1675842663249-a8b70103dbaa?auto=format&fit=crop&q=60&w=600",
+              text: "Speak with an engineer about your part, material, or failure analysis requirements. We’ll guide you to the correct test methods, applicable standards, and the right level of reporting for your project.",
+              button: "Connect with us",
             },
             {
               title: "Contact Us",
               img: "https://plus.unsplash.com/premium_photo-1675842663249-a8b70103dbaa?auto=format&fit=crop&q=60&w=600",
-              text: "Have questions or inquiries? Reach out to our team for prompt and professional assistance.",
+              text: "We’re here to help. Tell us about your project, testing needs, or timeline, and our team will follow up with clear next steps",
               button: "Connect with us",
             },
           ].map((card, index) => (
             <div
               key={index}
-              className="p-10 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 w-[380px] flex flex-col"
+              className="p-8 md:p-10 rounded-2xl shadow-lg hover:shadow-2xl hover:scale-105 transition-transform duration-300 w-[300px] md:w-[380px] flex flex-col"
             >
               <img
                 src={card.img}
                 alt={card.title}
-                className="mx-auto mb-6 rounded-2xl w-[320px] h-[220px] object-cover"
+                className="mx-auto mb-6 rounded-2xl w-full h-[220px] object-cover"
               />
 
-              <h3 className="text-3xl font-semibold mb-4 text-[#223241]">
+              <h3 className="text-2xl md:text-3xl font-semibold mb-4 text-[#223241]">
                 {card.title}
               </h3>
 
@@ -77,7 +101,7 @@ export default function Home() {
                 {card.text}
               </p>
 
-              <button className="bg-[#223241] text-white px-10 py-3 rounded-lg hover:bg-[#1a2733] transition mt-auto">
+              <button className="bg-[#223241] text-white px-8 md:px-10 py-3 rounded-lg hover:bg-[#1a2733] transition mt-auto">
                 {card.button}
               </button>
             </div>
@@ -87,7 +111,6 @@ export default function Home() {
 
       {/* ===== ANIMATION CSS ===== */}
       <style jsx>{`
-        /* Typing animation — slower, smoother, NO cursor */
         @keyframes typing {
           0% {
             width: 0;
@@ -106,10 +129,9 @@ export default function Home() {
           overflow: hidden;
           white-space: nowrap;
           animation: typing 4.5s ease forwards;
-          border-right: none !important; /* Hide cursor */
+          border-right: none !important;
         }
 
-        /* Fade in paragraph after typing completes */
         @keyframes fadeIn {
           from {
             opacity: 0;

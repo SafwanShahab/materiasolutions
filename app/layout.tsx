@@ -13,7 +13,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="flex flex-col min-h-screen">
         {/* Navbar */}
         <Navbar />
-
         {/* Page content grows to fill space */}
         <main className="flex-grow min-h-[200vh]">
           {children}
