@@ -11,11 +11,11 @@ export default function Navbar() {
     { href: "/services", label: "Our Services" },
     { href: "/contact", label: "About" },
     { href: "/consultation", label: "Free Consultation" },
-    { href: "/booking", label: "Request a Quote" },
+    { href: "/request-quote", label: "Request a Quote" },
   ];
 
   return (
-    <nav className="bg-[#223241] text-white fixed left-0 w-full py-6 px-8 z-50">
+    <nav className="bg-[#223241] text-white fixed left-0 w-full py-8 px-8 z-50">
       <div className="relative flex items-center justify-between w-full">
 
         {/* Left: Logo */}
@@ -55,11 +55,6 @@ export default function Navbar() {
             <Link href="#"><FaLinkedinIn className="hover:text-blue-700 transition" /></Link>
             <Link href="#"><FaXTwitter className="hover:text-sky-400 transition" /></Link>
           </div>
-          <Link
-            href="/request-quote"
-            className="bg-white text-black px-4 py-2 rounded font-semibold shadow-sm hover:bg-blue-100 hover:shadow-md transition-all duration-200">
-            Request a Quote
-          </Link>
         </div>
       </div>
     </nav>

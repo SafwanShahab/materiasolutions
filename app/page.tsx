@@ -1,6 +1,9 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+
 export default function Home() {
+  const router = useRouter();
   return (
     <div className="flex flex-col min-h-screen">
 
@@ -28,14 +31,15 @@ export default function Home() {
             At Materia Solutions, we uncover hidden material and component issues before they become costly failures. From failure analysis to metallography and NDE, our expert engineers deliver fast, actionable insights to keep your programs on track.
           </p>
           <div className="flex justify-center gap-4">
-          <button className="bg-white text-black px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition mt-5">
+          <button onClick={() => router.push("/request-quote")}
+          className="bg-white text-black px-6 py-3 rounded-lg font-semibold hover:bg-blue-300 transition mt-5">
             Request a Quote
           </button>
-          <button className="bg-white text-black px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition mt-5">
+          <button onClick={() => router.push("/consultation")}
+           className="bg-white text-black px-6 py-3 rounded-lg font-semibold hover:bg-blue-300 transition mt-5">
             Schedule a Free Consultation
           </button>
           </div>
-
         </div>
       </div>
 
