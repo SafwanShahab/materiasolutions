@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
+import { FaYoutube } from "react-icons/fa6";
 
 export default function Footer() {
   return (
@@ -14,34 +15,20 @@ export default function Footer() {
             <Image src="/Group.svg" alt="Materia Solutions Logo" width={200} height={100} />
           </div>
 
-          {/* Terms & Privacy */}
-          <div className="flex space-x-6">
-            <a href="#" className="hover:underline">Terms of Service</a>
-            <a href="#" className="hover:underline">Privacy Policy</a>
-          </div>
+
 
           {/* Social Icons */}
           <div className="flex items-center space-x-4 mt-2">
+            <a href="#" className="hover:text-blue-700"><FaLinkedinIn size={18} /></a>
+            <a href="#" className="hover:text-red-700"><FaYoutube size={18} /></a>
             <a href="#" className="hover:text-blue-500"><FaFacebookF size={18} /></a>
             <a href="#" className="hover:text-pink-500"><FaInstagram size={18} /></a>
-            <a href="#" className="hover:text-blue-700"><FaLinkedinIn size={18} /></a>
-            <a href="#" className="hover:text-sky-400"><FaTwitter size={18} /></a>
-          </div>
-
-          {/* Contact Info */}
-          <div className="text-gray-300">
-            <p>
-              Email:{" "}
-              <a href="mailto:info@materiasolutions.com" className="hover:underline">
-                info@materiasolutions.com
-              </a>
-            </p>
-            <p>Phone: (000) 000-0000</p>
+            <a href="#" className="hover:text-sky-400"><FaXTwitter size={18} /></a>
           </div>
 
           {/* Copyright */}
           <p className="text-gray-400 mt-4 text-sm">
-            © Materia Solutions. All rights reserved.
+            © 2025 Materia Solutions. All rights reserved.
           </p>
         </div>
 
@@ -56,16 +43,20 @@ export default function Footer() {
           </div>
 
           {/* Description */}
-          <p className="text-gray-400 text-sm md:text-left mt-6 md:mt-11">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.  
-            Vivamus imperdiet, sapien in fermentum bibendum, sapien justo ultrices elit, sit amet pretium nunc erat ut augue.  
-            Suspendisse potenti. Integer sit amet sapien vitae nulla ultrices cursus.  
-            Phasellus dignissim, metus non cursus ullamcorper, justo ligula facilisis nulla, ac efficitur sapien arcu at libero.  
-            Curabitur at magna sed lacus tincidunt tincidunt.  
-            Etiam vitae ligula id lectus vehicula hendrerit.  
-            Fusce imperdiet, lorem in dignissim lacinia, enim erat finibus metus, sed tristique lacus mauris ut nibh.  
-            Praesent a urna vitae turpis lacinia vestibulum at sit amet sapien.
-          </p>
+          <div className="flex flex-col space-y-1 text-gray-300 text-sm leading-relaxed max-w-lg mt-8">
+            <a href="#" className="hover:underline">
+              Privacy Policy – We respect your privacy and handle all personal and project information in accordance with applicable regulations.
+            </a>
+            <a href="#" className="hover:underline">
+              Terms of Use – By using this website, you agree to our terms and conditions regarding content and services.
+            </a>
+            <a href="#" className="hover:underline">
+              Compliance & Export Control – Materia Solutions handles EAR-controlled materials and technical data in accordance with U.S. Export Administration Regulations (EAR). ITAR-controlled materials are not accepted at this time.
+            </a>
+            <a href="#" className="hover:underline">
+              Contact Us – Get in touch with our engineering team for quotes, consultations, or questions about our services.
+            </a>
+          </div>
         </div>
 
       </div>

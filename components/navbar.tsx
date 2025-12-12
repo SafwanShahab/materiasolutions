@@ -1,6 +1,6 @@
 "use client";
 
-import { FaFacebookF, FaInstagram, FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
+import { FaFacebookF, FaInstagram, FaLinkedinIn, FaXTwitter, FaYoutube } from "react-icons/fa6";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -50,9 +50,10 @@ export default function Navbar() {
         {/* Right: Social icons + button */}
         <div className="flex flex-col items-end gap-2">
           <div className="flex gap-3 mb-1">
+            <Link href="#"><FaLinkedinIn className="hover:text-blue-700 transition" /></Link>
+            <Link href="#"><FaYoutube className="hover:text-red-700 transition" /></Link>
             <Link href="#"><FaFacebookF className="hover:text-blue-500 transition" /></Link>
             <Link href="#"><FaInstagram className="hover:text-pink-500 transition" /></Link>
-            <Link href="#"><FaLinkedinIn className="hover:text-blue-700 transition" /></Link>
             <Link href="#"><FaXTwitter className="hover:text-sky-400 transition" /></Link>
           </div>
         </div>

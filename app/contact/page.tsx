@@ -39,10 +39,12 @@ export default function AboutUsPage() {
           <p className="text-gray-700 text-center leading-relaxed">
             We’re here to help. Whether you have questions about our materials testing capabilities, need a quote, or want to schedule a consultation, our team is ready to assist.
           </p>
-          <div className="flex justify-center gap-6 mt-4">
-            <button className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition">Email Us</button>
-            <button className="bg-gray-200 text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-gray-300 transition">Call Us</button>
-          </div>
+          <p className="text-gray-700 text-center mt-4">
+            Email: info@materiasolutions.com
+          </p>
+          <p className="text-gray-700 text-center mt-4">
+            Phone: [your phone number]
+          </p>
           <p className="text-gray-700 text-center mt-4">
             Address: [your office/lab address]
           </p>
