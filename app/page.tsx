@@ -32,17 +32,18 @@ export default function Home() {
           </p>
           <div className="flex justify-center gap-4">
             <button
-              onClick={() => router.push("/request-quote")}
-              className="bg-white text-black px-6 py-3 rounded-lg font-semibold hover:bg-blue-300 transition mt-5"
-            >
-              Request a Quote
-            </button>
-            <button
               onClick={() => router.push("/consultation")}
               className="bg-white text-black px-6 py-3 rounded-lg font-semibold hover:bg-blue-300 transition mt-5"
             >
               Schedule a Free Consultation
             </button>
+            <button
+              onClick={() => router.push("/request-quote")}
+              className="bg-white text-black px-6 py-3 rounded-lg font-semibold hover:bg-blue-300 transition mt-5"
+            >
+              Request a Quote
+            </button>
+            
           </div>
         </div>
       </div>
@@ -72,6 +73,13 @@ export default function Home() {
               link: "/services",
             },
             {
+              title: "Free Consultation",
+              img: "https://plus.unsplash.com/premium_photo-1675842663249-a8b70103dbaa?auto=format&fit=crop&q=60&w=600",
+              text: "Speak with an engineer about your part, material, or failure analysis requirements. We’ll guide you to the correct test methods, applicable standards, and the right level of reporting for your project.",
+              button: "Connect with us",
+              link: "/consultation",
+            },
+            {
               title: "Request a Quote",
               img: "https://plus.unsplash.com/premium_photo-1664533227323-1502b504cac4?auto=format&fit=crop&q=60&w=600",
               text: "We make it easy to get started. Send us your part details, required analyses, and any applicable test standards, and we’ll provide a clear, competitive quote with fast turnaround options.",
@@ -79,14 +87,7 @@ export default function Home() {
               link: "/request-quote",
             },
             {
-              title: "Schedule a Free Consultation",
-              img: "https://plus.unsplash.com/premium_photo-1675842663249-a8b70103dbaa?auto=format&fit=crop&q=60&w=600",
-              text: "Speak with an engineer about your part, material, or failure analysis requirements. We’ll guide you to the correct test methods, applicable standards, and the right level of reporting for your project.",
-              button: "Connect with us",
-              link: "/consultation",
-            },
-            {
-              title: "Contact Us",
+              title: "About",
               img: "https://images.unsplash.com/photo-1516387938699-a93567ec168e?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
               text: "We’re here to help. Tell us about your project, testing needs, or timeline, and our team will follow up with clear next steps.",
               button: "Connect with us",

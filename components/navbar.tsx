@@ -9,9 +9,10 @@ export default function Navbar() {
   const pathname = usePathname();
   const links = [
     { href: "/services", label: "Our Services" },
-    { href: "/contact", label: "About" },
     { href: "/consultation", label: "Free Consultation" },
     { href: "/request-quote", label: "Request a Quote" },
+    { href: "/contact", label: "About" },
+
   ];
 
   return (

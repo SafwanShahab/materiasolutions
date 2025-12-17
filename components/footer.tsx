@@ -36,10 +36,7 @@ export default function Footer() {
         <div className="flex flex-col justify-between w-full md:w-1/2 md:mt-3">
           {/* Site Links */}
           <div className="flex flex-wrap gap-10 md:justify-left text-lg">
-            <a href="#" className="hover:underline">Services</a>
-            <a href="#" className="hover:underline">Booking</a>
-            <a href="#" className="hover:underline">About</a>
-            <a href="#" className="hover:underline">Contact</a>
+            
           </div>
 
           {/* Description */}
@@ -50,12 +47,7 @@ export default function Footer() {
             <a href="#" className="hover:underline">
               Terms of Use – By using this website, you agree to our terms and conditions regarding content and services.
             </a>
-            <a href="#" className="hover:underline">
-              Compliance & Export Control – Materia Solutions handles EAR-controlled materials and technical data in accordance with U.S. Export Administration Regulations (EAR). ITAR-controlled materials are not accepted at this time.
-            </a>
-            <a href="#" className="hover:underline">
-              Contact Us – Get in touch with our engineering team for quotes, consultations, or questions about our services.
-            </a>
+           
           </div>
         </div>
 
