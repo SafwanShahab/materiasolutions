@@ -8,7 +8,7 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
 
       {/* ===== Hero Section ===== */}
-      <div className="relative h-[1000px] mt-28">
+      <div className="relative h-[90vh] md:h-[100vh] mt-28">
         {/* Video Background */}
         <video
           className="absolute top-0 left-0 w-full h-full object-cover"
@@ -23,47 +23,46 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/60"></div>
 
         {/* Main Hero Text */}
-        <div className="relative z-10 flex flex-col items-center justify-center text-center text-white px-8 md:px-16 lg:px-32 h-[calc(100vh-120px)]">
-          <h1 className="typing-title md:text-6xl font-bold mb-6 leading-tight tracking-wide">
+        <div className="relative z-10 flex flex-col items-center justify-center text-center text-white px-6 sm:px-10 md:px-16 lg:px-32 h-full">
+          <h1 className="typing-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-snug sm:leading-tight">
             Materia Solutions
           </h1>
-          <p className="fade-in text-xl md:text-1xl max-w-4xl text-gray-200 font-light">
+          <p className="fade-in text-base sm:text-lg md:text-xl max-w-xl sm:max-w-2xl text-gray-200 font-light mb-6">
             At Materia Solutions, we uncover hidden material and component issues before they become costly failures. From failure analysis to metallography and NDE, our expert engineers deliver fast, actionable insights to keep your programs on track.
           </p>
-          <div className="flex justify-center gap-4">
+          <div className="flex flex-col sm:flex-row justify-center gap-4 w-full sm:w-auto">
             <button
               onClick={() => router.push("/consultation")}
-              className="bg-white text-black px-6 py-3 rounded-lg font-semibold hover:bg-blue-300 transition mt-5"
+              className="bg-white text-black px-6 py-3 rounded-lg font-semibold hover:bg-blue-300 transition"
             >
               Schedule a Free Consultation
             </button>
             <button
               onClick={() => router.push("/request-quote")}
-              className="bg-white text-black px-6 py-3 rounded-lg font-semibold hover:bg-blue-300 transition mt-5"
+              className="bg-white text-black px-6 py-3 rounded-lg font-semibold hover:bg-blue-300 transition"
             >
               Request a Quote
             </button>
-            
           </div>
         </div>
       </div>
 
       {/* ===== Our Services Section ===== */}
-      <section className="bg-white text-gray-800 pt-16 pb-16 px-5 md:px-10">
+      <section className="bg-white text-gray-800 pt-16 pb-16 px-5 sm:px-10 md:px-16 lg:px-32">
         {/* Image + Heading */}
-        <div className="flex items-center gap-6 mb-8 -mt-8">
+        <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 mb-12">
           <img
             src="/services.png"
             alt="Services Icon"
-            className="h-24 w-auto object-contain"
+            className="h-20 sm:h-24 w-auto object-contain"
           />
-          <h2 className="text-5xl md:text-6xl font-bold text-[#223241]">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#223241] text-center sm:text-left">
             Our Services
           </h2>
         </div>
 
         {/* ===== SERVICE CARDS ===== */}
-        <div className="flex flex-wrap justify-center gap-10 md:gap-12 text-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 md:gap-10 text-center">
           {[
             {
               title: "Our Services",
@@ -96,25 +95,25 @@ export default function Home() {
           ].map((card, index) => (
             <div
               key={index}
-              className="p-8 md:p-10 rounded-2xl shadow-lg hover:shadow-2xl hover:scale-105 transition-transform duration-300 w-[300px] md:w-[380px] flex flex-col"
+              className="p-6 sm:p-8 md:p-10 rounded-2xl shadow-lg hover:shadow-2xl hover:scale-105 transition-transform duration-300 flex flex-col w-full max-w-sm mx-auto"
             >
               <img
                 src={card.img}
                 alt={card.title}
-                className="mx-auto mb-6 rounded-2xl w-full h-[220px] object-cover"
+                className="mx-auto mb-4 sm:mb-6 rounded-2xl w-full h-48 sm:h-56 object-cover"
               />
 
-              <h3 className="text-2xl md:text-3xl font-semibold mb-4 text-[#223241]">
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold mb-2 sm:mb-4 text-[#223241]">
                 {card.title}
               </h3>
 
-              <p className="mb-8 text-gray-600 text-lg min-h-[90px]">
+              <p className="mb-4 sm:mb-6 text-gray-600 text-sm sm:text-base min-h-[80px]">
                 {card.text}
               </p>
 
               <button
                 onClick={() => router.push(card.link)}
-                className="bg-[#223241] text-white px-8 md:px-10 py-3 rounded-lg hover:bg-[#1a2733] transition mt-auto"
+                className="bg-[#223241] text-white px-6 sm:px-8 py-2 sm:py-3 rounded-lg hover:bg-[#1a2733] transition mt-auto"
               >
                 {card.button}
               </button>

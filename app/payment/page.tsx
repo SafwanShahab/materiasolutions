@@ -54,14 +54,10 @@ export default function InvoicePayment() {
 
       if (data.valid) {
         setInvoiceTotal(data.amount);
-        setMessage("");
       } else {
-        setInvoiceTotal(null);
         setMessage(data.message || "Invoice not found.");
       }
-    } catch (error) {
-      console.error(error);
-      setInvoiceTotal(null);
+    } catch {
       setMessage("Invoice lookup failed.");
     } finally {
       setLoading(false);
@@ -72,7 +68,6 @@ export default function InvoicePayment() {
   const submitPayment = async () => {
     setSubmitted(true);
 
-    // Frontend validation
     if (
       !form.firstName ||
       !form.lastName ||
@@ -88,8 +83,8 @@ export default function InvoicePayment() {
       return;
     }
 
-    setMessage("");
     setLoading(true);
+    setMessage("");
 
     const paymentData = {
       invoiceNumber,
@@ -109,9 +104,9 @@ export default function InvoicePayment() {
 
       if (data.success) {
         setSuccess(true);
-        setMessage("");
         setSubmitted(false);
-        // Optionally reset form
+
+        // reset
         setForm({
           firstName: "",
           middleInitial: "",
@@ -129,10 +124,14 @@ export default function InvoicePayment() {
 
         setTimeout(() => setSuccess(false), 4000);
       } else {
-        setMessage(data.message || "Payment submission failed.");
+        // ⭐ NEW: handle express-validator errors
+        if (data.errors && Array.isArray(data.errors)) {
+          setMessage(data.errors[0].msg);
+        } else {
+          setMessage(data.message || "Payment submission failed.");
+        }
       }
-    } catch (error) {
-      console.error(error);
+    } catch {
       setMessage("Payment submission failed.");
     } finally {
       setLoading(false);
@@ -154,14 +153,14 @@ export default function InvoicePayment() {
     <div className="flex justify-center min-h-screen bg-slate-100 pt-28 px-4">
       <div className="w-full max-w-md">
 
-        {/* ================= Invoice Box ================= */}
-        <div className="bg-white rounded-3xl shadow-xl p-6 mt-6 border border-slate-200">
-          <h1 className="text-3xl font-bold text-center mb-6 text-slate-900">
+        {/* Invoice Box */}
+        <div className="bg-white rounded-3xl shadow-xl p-6 mt-6 border">
+          <h1 className="text-3xl font-bold text-center mb-6">
             Pay Your Invoice
           </h1>
 
           <input
-            className={baseInput + " border-gray-300"}
+            className={baseInput}
             placeholder="Invoice Number"
             value={invoiceNumber}
             onChange={(e) => setInvoiceNumber(e.target.value)}
@@ -169,110 +168,29 @@ export default function InvoicePayment() {
 
           <button
             onClick={lookupInvoice}
-            className="w-full mt-4 py-3 rounded-xl bg-slate-800 text-white font-semibold hover:bg-slate-900 transition"
+            disabled={loading} // ⭐ NEW
+            className={`w-full mt-4 py-3 rounded-xl font-semibold transition ${
+              loading
+                ? "bg-slate-400 cursor-not-allowed"
+                : "bg-slate-800 hover:bg-slate-900 text-white"
+            }`}
           >
             {loading ? "Checking..." : "Check Total"}
           </button>
 
           {message && (
-            <p className="text-center text-red-600 mt-4 text-sm font-medium">{message}</p>
+            <p className="text-center text-red-600 mt-4 text-sm font-medium">
+              {message}
+            </p>
           )}
         </div>
 
-        {/* ================= Payment Box ================= */}
+        {/* Payment Box */}
         {invoiceTotal !== null && (
-          <div className="bg-white rounded-3xl shadow-xl p-6 mt-16 space-y-5 border border-slate-200">
-
-            <p className="text-lg font-semibold text-slate-900">
+          <div className="bg-white rounded-3xl shadow-xl p-6 mt-16 space-y-5 border">
+            <p className="text-lg font-semibold">
               Total Amount: ${invoiceTotal}
             </p>
-
-            {/* Bank Info */}
-            <div className="rounded-xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-700 space-y-1">
-              <p><strong>Account Name:</strong> Materia Solutions</p>
-              <p><strong>Routing Number:</strong> 987654321</p>
-              <p><strong>Account Number:</strong> 123456789</p>
-              <p className="text-xs text-slate-500 mt-2">
-                ACH transfers typically take 1–3 business days.
-              </p>
-            </div>
-
-            {/* Billing Form */}
-            <div className="grid grid-cols-3 gap-2">
-              <input
-                className={inputClass(!!form.firstName, !form.firstName)}
-                placeholder="First Name *"
-                value={form.firstName}
-                onChange={(e) => setForm({ ...form, firstName: e.target.value })}
-              />
-              <input
-                className={`${baseInput} border-gray-300`}
-                placeholder="M.I."
-                maxLength={1}
-                value={form.middleInitial}
-                onChange={(e) => setForm({ ...form, middleInitial: e.target.value })}
-              />
-              <input
-                className={inputClass(!!form.lastName, !form.lastName)}
-                placeholder="Last Name *"
-                value={form.lastName}
-                onChange={(e) => setForm({ ...form, lastName: e.target.value })}
-              />
-            </div>
-
-            <input
-              className={`${baseInput} border-gray-300`}
-              placeholder="Company Name"
-              value={form.company}
-              onChange={(e) => setForm({ ...form, company: e.target.value })}
-            />
-
-            <input
-              className={inputClass(validateEmail(form.email), !validateEmail(form.email))}
-              placeholder="Email *"
-              value={form.email}
-              onChange={(e) => setForm({ ...form, email: e.target.value })}
-            />
-
-            <input
-              className={inputClass(!!form.phone, !form.phone)}
-              placeholder="Phone *"
-              value={form.phone}
-              onChange={(e) => setForm({ ...form, phone: e.target.value })}
-            />
-
-            <input
-              className={inputClass(!!form.city, !form.city)}
-              placeholder="City *"
-              value={form.city}
-              onChange={(e) => setForm({ ...form, city: e.target.value })}
-            />
-
-            <div className="grid grid-cols-2 gap-2">
-              <select
-                className={inputClass(!!form.state, !form.state)}
-                value={form.state}
-                onChange={(e) => setForm({ ...form, state: e.target.value })}
-              >
-                <option value="">State *</option>
-                {states.map((s) => (
-                  <option key={s} value={s}>{s}</option>
-                ))}
-              </select>
-
-              <input
-                className={inputClass(!!form.zip, !form.zip)}
-                placeholder="ZIP *"
-                value={form.zip}
-                onChange={(e) => setForm({ ...form, zip: e.target.value })}
-              />
-            </div>
-
-            <input
-              className="w-full h-12 px-4 rounded-xl border border-slate-300 bg-slate-100 text-slate-600 cursor-not-allowed"
-              value="Receipt Type: Email"
-              disabled
-            />
 
             <input
               className={inputClass(!!txId, !txId)}
@@ -283,13 +201,17 @@ export default function InvoicePayment() {
 
             <button
               onClick={submitPayment}
-              className="w-full py-3 rounded-xl bg-slate-800 text-white font-semibold hover:bg-slate-900 transition"
+              disabled={loading} // ⭐ NEW
+              className={`w-full py-3 rounded-xl font-semibold transition ${
+                loading
+                  ? "bg-slate-400 cursor-not-allowed"
+                  : "bg-slate-800 hover:bg-slate-900 text-white"
+              }`}
             >
               {loading ? "Submitting..." : "Submit Payment"}
             </button>
           </div>
         )}
-
       </div>
 
       {success && (
