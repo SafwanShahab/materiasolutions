@@ -4,9 +4,9 @@ import { useRouter } from "next/navigation";
 
 export default function Home() {
   const router = useRouter();
+
   return (
     <div className="flex flex-col min-h-screen">
-
       {/* ===== Hero Section ===== */}
       <div className="relative h-[90vh] md:h-[100vh] mt-28">
         {/* Video Background */}
@@ -17,26 +17,33 @@ export default function Home() {
           loop
           muted
           playsInline
-        ></video>
+        />
 
         {/* Dark overlay */}
-        <div className="absolute inset-0 bg-black/60"></div>
+        <div className="absolute inset-0 bg-black/60" />
 
         {/* Main Hero Text */}
-        <div className="relative z-10 flex flex-col items-center justify-center text-center text-white px-6 sm:px-10 md:px-16 lg:px-32 h-full">
-          <h1 className="typing-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-snug sm:leading-tight">
-            Materia Solutions
-          </h1>
+        <div className="absolute top-[10px] absolute md:top-[-80px] bottom-0 left-0 right-0 flex flex-col items-center justify-center text-center text-white px-6 sm:px-10 md:px-16 lg:px-32">
+  <h1 className="typing-title text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-snug sm:leading-tight">
+    Materia Solutions
+  </h1>
+
           <p className="fade-in text-base sm:text-lg md:text-xl max-w-xl sm:max-w-2xl text-gray-200 font-light mb-6">
-            At Materia Solutions, we uncover hidden material and component issues before they become costly failures. From failure analysis to metallography and NDE, our expert engineers deliver fast, actionable insights to keep your programs on track.
+            At Materia Solutions, we uncover hidden material and component issues
+            before they become costly failures. From failure analysis to
+            metallography and NDE, our expert engineers deliver fast, actionable
+            insights to keep your programs on track.
           </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4 w-full sm:w-auto">
+
+          {/* Buttons fade in AFTER paragraph */}
+          <div className="fade-in-late flex flex-col sm:flex-row justify-center gap-4 w-full sm:w-auto">
             <button
               onClick={() => router.push("/consultation")}
               className="bg-white text-black px-6 py-3 rounded-lg font-semibold hover:bg-blue-300 transition"
             >
               Schedule a Free Consultation
             </button>
+
             <button
               onClick={() => router.push("/request-quote")}
               className="bg-white text-black px-6 py-3 rounded-lg font-semibold hover:bg-blue-300 transition"
@@ -87,7 +94,7 @@ export default function Home() {
             },
             {
               title: "About",
-              img: "https://images.unsplash.com/photo-1516387938699-a93567ec168e?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+              img: "https://images.unsplash.com/photo-1516387938699-a93567ec168e?q=80&w=1171&auto=format&fit=crop",
               text: "We’re here to help. Tell us about your project, testing needs, or timeline, and our team will follow up with clear next steps.",
               button: "Connect with us",
               link: "/contact",
@@ -159,6 +166,11 @@ export default function Home() {
         .fade-in {
           opacity: 0;
           animation: fadeIn 1s ease 3s forwards;
+        }
+
+        .fade-in-late {
+          opacity: 0;
+          animation: fadeIn 1s ease 4.2s forwards;
         }
       `}</style>
     </div>
